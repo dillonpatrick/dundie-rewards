@@ -30,6 +30,7 @@ setup(
     description="Reward Point System for Dunder Mifflin.",
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
+    python_requires=">=3.8",
     author="Dillon Patrick",
     packages=find_packages(),
     entry_points={"console_scripts": ["dundie = dundie.__main__:main"]},

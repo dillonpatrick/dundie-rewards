@@ -10,6 +10,12 @@ on:
 
   workflow_dispatch:
 
+permissions:
+  contents: read
+  issues: read
+  checks: write
+  pull-requests: write
+
 jobs:
   tests:
     strategy:
@@ -22,8 +28,14 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
-          python-version: ${{matrix.python-version}}
+          python-version: ${{matrix.python-version}} 
       - name: Install Project
         run: pip install '.[test]'
       - name: Run tests
-        run: pytest -vv tests integration
+        run: pytest -v --junitxml=test-result.xml
+      - name: publish junit results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          files: test-result.xml
+          check_name: Test result (Python ${{matrix.python-version}} )

@@ -17,7 +17,7 @@ ipython:
 	@ipython
 
 test:
-	@pytest -vv -s
+	@pytest -s
 
 watch:
 	@ptw -- -vv -s

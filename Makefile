@@ -19,9 +19,6 @@ ipython:
 test:
 	@pytest -s
 
-testci:
-	@pytest -v --junitxml=test-result.xml
-
 watch:
 	@ptw -- -vv -s
 

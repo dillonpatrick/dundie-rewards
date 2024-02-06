@@ -17,7 +17,10 @@ ipython:
 	@ipython
 
 test:
-	@pytest -vv -s
+	@pytest -s
+
+testci:
+	@pytest -v --junitxml=test-result.xml
 
 watch:
 	@ptw -- -vv -s

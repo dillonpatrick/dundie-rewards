@@ -1,5 +1,5 @@
 # Makefile
-.PHONY: install virtualenv ipython clean
+.PHONY: install virtualenv ipython clean pflake8
 
 install-dev:
 	@echo "Installing for dev environment"
@@ -15,6 +15,9 @@ virtualenv:
 
 ipython:
 	@ipython
+
+lint:
+	@flake8 --exclude .venv,build
 
 test:
 	@pytest -s

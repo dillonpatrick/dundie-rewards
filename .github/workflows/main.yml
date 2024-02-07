@@ -45,9 +45,9 @@ jobs:
       - name: Look for style errors
         run: flake8 --exclude .venv,build
       - name: Check for import style
-        run: isort --profile=black --ckeck --diff dundie tests integration
+        run: isort --profile=black --check --diff dundie tests integration
       - name: Loog for auto format errors
-        run: black --ckeck --diff dundie tests integrations
+        run: black --check --diff dundie tests integrations
 
   tests:
     # Configuração da estratégia de execução

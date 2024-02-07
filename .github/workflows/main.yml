@@ -41,12 +41,13 @@ jobs:
       # Instalação das dependências do projeto
       - name: Install Project
         run: pip install '.[test]'
-      # Linter  
+      # Linter
       - name: Look for style errors
         run: flake8 --exclude .venv,build
 
   tests:
     # Configuração da estratégia de execução
+    needs: lint
     strategy:
       fail-fast: false
       matrix:

@@ -19,6 +19,10 @@ ipython:
 lint:
 	@flake8 --exclude .venv,build
 
+fmt:
+	@isort dundie tests integration
+	@black dundie tests integration
+
 test:
 	@pytest -s
 

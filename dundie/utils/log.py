@@ -1,5 +1,5 @@
-import os
 import logging
+import os
 from logging import handlers
 
 LOG_LEVEL = os.getenv("LOG_LEVEL", "WARNING").upper()
@@ -10,7 +10,9 @@ fmt = logging.Formatter(
 )
 
 
-def get_logger(logfile="dundie.log"):
+def get_logger(
+    logfile="dundie.log",
+):
     """Returns a configured logger"""
     fh = handlers.RotatingFileHandler(
         logfile,

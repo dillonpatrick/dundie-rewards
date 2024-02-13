@@ -27,7 +27,7 @@ test:
 	@pytest -s
 
 watch:
-	@ptw -- -vv -s
+	@ptw -c -- -vv -s 
 
 #TODO: mudar para comando compativel com windows
 clean:            ## Clean unused files.

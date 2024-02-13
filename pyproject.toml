@@ -1,6 +1,6 @@
 [tool.pytest.ini_options]
 minversion = "6.0"
-addopts = "-ra -q -vv"
+addopts = "-ra -q"
 testpaths = ["tests", "integration"]
 
 [tool.flake8]
@@ -11,15 +11,15 @@ max-line-length = 79
 line-length = 79
 target-version = ["py39"]
 exclude = '''
-/(
-      \.eggs
-    | \.git
-    | \.venv
-    | _build
-    | dist
-    | migrations
-)/
-'''
+    /(
+        \.eggs
+      | \.git
+      | \.venv
+      | _build
+      | dist
+      | migrations
+    )/
+  '''
 
 [tool.isort]
 profile = "black"

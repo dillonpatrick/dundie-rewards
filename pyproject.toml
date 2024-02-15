@@ -2,6 +2,13 @@
 minversion = "6.0"
 addopts = "-ra -q"
 testpaths = ["tests", "integration"]
+markers = [
+  "unit: Mark unit tests",
+  "integration: Mark integration tests",
+  "high: High Priority",
+  "medium: Medium Priority",
+  "low: Low Priority",
+]
 
 [tool.flake8]
 exclude = [".venv", "build"]

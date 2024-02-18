@@ -12,8 +12,8 @@
         }
     },
     "balance": {
-        "jim@dundlermifflin.com": 500,
-        "schrute@dundlermifflin.com": 100
+        "jim@dundlermifflin.com": 590,
+        "schrute@dundlermifflin.com": 165
     },
     "movement": {
         "jim@dundlermifflin.com": [
@@ -21,6 +21,21 @@
                 "date": "2024-02-14T23:05:50.402993",
                 "actor": "system",
                 "value": 500
+            },
+            {
+                "date": "2024-02-17T21:35:34.281144",
+                "actor": null,
+                "value": 30
+            },
+            {
+                "date": "2024-02-17T21:38:26.799204",
+                "actor": null,
+                "value": 30
+            },
+            {
+                "date": "2024-02-17T21:38:32.052015",
+                "actor": null,
+                "value": 30
             }
         ],
         "schrute@dundlermifflin.com": [
@@ -28,6 +43,36 @@
                 "date": "2024-02-14T23:05:54.487302",
                 "actor": "system",
                 "value": 100
+            },
+            {
+                "date": "2024-02-17T21:35:34.281144",
+                "actor": null,
+                "value": 30
+            },
+            {
+                "date": "2024-02-17T21:36:07.587936",
+                "actor": null,
+                "value": -25
+            },
+            {
+                "date": "2024-02-17T21:38:22.069552",
+                "actor": null,
+                "value": -25
+            },
+            {
+                "date": "2024-02-17T21:38:26.799204",
+                "actor": null,
+                "value": 30
+            },
+            {
+                "date": "2024-02-17T21:38:32.052015",
+                "actor": null,
+                "value": 30
+            },
+            {
+                "date": "2024-02-17T21:38:43.738674",
+                "actor": null,
+                "value": 25
             }
         ]
     },

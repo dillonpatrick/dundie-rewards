@@ -1,6 +1,6 @@
 import pytest
 
-from dundie.database import EMPTY_DB, add_person, commit, connect
+from dundie.database import EMPTY_DB, add_movement, add_person, commit, connect
 
 
 @pytest.mark.unit
@@ -20,20 +20,45 @@ def test_commit_to_database():
     assert db["people"]["joe@doe.com"] == data
 
 
-# @pytest.mark.unit
-# def test_add_person_for_the_first_time():
-#     pk = "joe@doe.com"
-#     data = {"name": "Joe Doe", "role": "Salesman", "dept": "Sales"}
-#     db = connect()
-#     _, created = add_person(db, pk, data)
-#     assert created is False
-#     commit(db)
+@pytest.mark.unit
+@pytest.mark.skip(reason="It is not possible to test on Windows")
+def test_add_person_for_the_first_time():
+    pk = "joe@doe.com"
+    data = {"name": "Joe Doe", "role": "Salesman", "dept": "Sales"}
+    db = connect()
+    _, created = add_person(db, pk, data)
+    assert created is False
+    commit(db)
 
-#     db = connect()
-#     assert db["people"][pk] == data
-#     assert db["balance"][pk] == 500
-#     assert len(db["movement"][pk]) > 0
-#     assert db["movement"][pk][0]["value"] == 500
+    db = connect()
+    assert db["people"][pk] == data
+    assert db["balance"][pk] == 500
+    assert len(db["movement"][pk]) > 0
+    assert db["movement"][pk][0]["value"] == 500
+
+
+@pytest.mark.unit
+@pytest.mark.skip(reason="It is not possible to test on Windows")
+def test_add_or_remove_points_for_person():
+    pk = "joe@doe.com"
+    data = {"role": "Salesman", "dept": "Sales", "name": "Joe Does"}
+    db = connect()
+    _, created = add_person(db, pk, data)
+    assert created is True
+    commit(db)
+
+    db = connect()
+    before = db["balance"][pk]
+
+    add_movement(db, pk, -100, "manager")
+    commit(db)
+
+    db = connect()
+    after = db["balance"][pk]
+
+    assert after == before - 100
+    assert after == 400
+    assert before == 500
 
 
 @pytest.mark.unit

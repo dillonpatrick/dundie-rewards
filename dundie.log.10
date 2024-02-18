@@ -1,0 +1,2 @@
+2024-02-14 23:00:34,428 dundie ERROR l:32 f:email.py: Cannot send e-mail to ['jim@dundlermifflin.com']
+2024-02-14 23:00:38,509 dundie ERROR l:32 f:email.py: Cannot send e-mail to ['schrute@dundlermifflin.com']

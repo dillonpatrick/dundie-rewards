@@ -24,7 +24,7 @@ fmt:
 	@black dundie tests integration
 
 test:
-	@pytest -s
+	@pytest -vv -s
 
 watch:
 	@ptw -c -- -vv -s 

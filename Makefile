@@ -1,5 +1,5 @@
 # Makefile
-.PHONY: install virtualenv ipython clean pflake8
+.PHONY: install virtualenv ipython clean pflake8 fmt lint watch docs docs-serve
 
 install-dev:
 	@echo "Installing for dev environment"
@@ -29,6 +29,13 @@ test:
 watch:
 	@ptw -c -- -vv -s 
 
+docs:
+	@mkdocs build --clean
+
+docs-serve:
+	@mkdocs serve
+
+
 #TODO: mudar para comando compativel com windows
 clean:            ## Clean unused files.
 	@find ./ -name '*.pyc' -exec rm -f {} \;
@@ -44,3 +51,4 @@ clean:            ## Clean unused files.
 	@rm -rf htmlcov
 	@rm -rf .tox/
 	@rm -rf docs/_build
+

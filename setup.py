@@ -26,6 +26,8 @@ def read_requirements(path):
 
 setup(
     name="dundie",
+    # Major.Minor.Patch
+    # X.Y.Z
     version="0.1.0",
     description="Reward Point System for Dunder Mifflin.",
     long_description=read("README.md"),

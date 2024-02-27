@@ -1,17 +1,12 @@
 # Makefile
 .PHONY: install virtualenv ipython clean pflake8 fmt lint watch docs docs-serve
 
-install-dev:
+install:
 	@echo "Installing for dev environment"
-	@pip install -e '.[dev]'
-
-install-test:
-	@echo "Installing for test environment"
-	@pip install -e '.[test]'
+	@python -m pip install -e '.[dev]'
 
 virtualenv:
 	@python -m venv .venv
-
 
 ipython:
 	@ipython
@@ -35,20 +30,16 @@ docs:
 docs-serve:
 	@mkdocs serve
 
+build:
+	@python setup.py sdist bdist_wheel clean --all
+
+publish-test:
+	@twine upload --repository testpypi dist/*
+
+publish:
+	@twine upload dist/*
 
 #TODO: mudar para comando compativel com windows
-clean:            ## Clean unused files.
-	@find ./ -name '*.pyc' -exec rm -f {} \;
-	@find ./ -name '__pycache__' -exec rm -rf {} \;
-	@find ./ -name 'Thumbs.db' -exec rm -f {} \;
-	@find ./ -name '*~' -exec rm -f {} \;
-	@rm -rf .cache
-	@rm -rf .pytest_cache
-	@rm -rf .mypy_cache
-	@rm -rf build
-	@rm -rf dist
-	@rm -rf *.egg-info
-	@rm -rf htmlcov
-	@rm -rf .tox/
-	@rm -rf docs/_build
-
+clean:
+	@rmdir /s /q build dist .pytest_cache .cache .mypy_cache htmlcov .tox
+	@rmdir *.egg-info -recurse
